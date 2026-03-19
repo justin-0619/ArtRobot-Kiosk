@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt, QTimer, QSize, QPointF, QRectF
 from PyQt5.QtGui import QPixmap, QIcon, QFont, QPalette, QColor, QPainter, QPen
 
-# ✅ PC가 Modbus TCP Slave(서버)로 동작 (당신이 정상작동 확인한 구조)
+# ✅ PC가 Modbus TCP Slave(서버)로 동작 (정상작동 확인한 구조)
 from pymodbus.server.sync import StartTcpServer
 from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.datastore import ModbusSequentialDataBlock
@@ -23,7 +23,7 @@ from pymodbus.datastore import ModbusSequentialDataBlock
 PC_IP = "192.168.100.30"
 PC_PORT = 502
 
-# 주소 매핑(요청대로)
+# 주소 매핑
 DI_ADDRS = list(range(0, 7))  # DI_0~DI_6 : 0~6
 DO0_BUSY_ADDR = 7             # DO_0 : 7 (Coil)
 
@@ -50,7 +50,7 @@ def start_modbus_slave_server():
 
 
 # -----------------------------
-# Modbus 헬퍼 (당신 코드 방식과 동일)
+# Modbus 헬퍼 
 # -----------------------------
 def set_di(ctx, addr, val: int):
     # fc=2 Discrete Inputs
@@ -313,7 +313,7 @@ class PreviewCanvas(QWidget):
             p2 = map_pt(x2, y2)
             painter.drawLine(p1, p2)
 
-        # 다음 선분을 “부분적으로” 그려서 더 자연스럽게(선택)
+        # 다음 선분을 “부분적으로” 그려서 더 자연스럽게
         # (k < total 일 때, k번째 선분의 일부만)
         if k < total:
             x1, y1, x2, y2 = segs[k]
@@ -395,12 +395,12 @@ class PreviewCanvas(QWidget):
     def _approx_cat_segments(self):
         segs = []
 
-        # 1) 얼굴 원: "한 번만" 추가 (여기만!)
-        # 귀랑 붙이려면 cy를 조금 올리고, r을 조금 키우는 편이 자연스럽습니다.
+        # 1) 얼굴 원: 한 번 추가 
+        # 귀랑 붙이려면 cy를 조금 올리고, r을 조금 키우는 편이 자연스러움
         segs += self._approx_circle_segments(cx=0.5, cy=0.56, r=0.23, n=90)
 
         # 2) 수염 - 각 선을 쪼개서 속도 맞추기
-        # 고양이 느낌(사진처럼)으로 약간 기울임
+        # 고양이 느낌으로 약간 기울임
         whisk_parts = 10
         segs.extend(self._subdivide_line(0.30, 0.56, 0.08, 0.50, parts=whisk_parts))
         segs.extend(self._subdivide_line(0.30, 0.60, 0.08, 0.60, parts=whisk_parts))
@@ -411,8 +411,8 @@ class PreviewCanvas(QWidget):
         segs.extend(self._subdivide_line(0.70, 0.64, 0.92, 0.70, parts=whisk_parts))
 
         # 3) 귀(삼각형) - 선을 쪼개서 속도 맞추기
-        # 귀를 원과 붙이려면 y를 약간 내리거나(큰 y), 원의 cy/r을 조정해야 합니다.
-        # 아래는 귀 밑변이 원 위쪽에 닿도록 좌표를 조정한 예시입니다.
+        # 귀를 원과 붙이려면 y를 약간 내리거나(큰 y), 원의 cy/r을 조정해야함
+        # 아래는 귀 밑변이 원 위쪽에 닿도록 좌표를 조정한 예시
         left_ear = [(0.38, 0.36), (0.34, 0.25), (0.43, 0.34)]
         right_ear = [(0.62, 0.36), (0.65, 0.25), (0.57, 0.34)]
 
@@ -479,7 +479,7 @@ class SelectCard(QFrame):
             v.addWidget(self.lbl_sub)
         v.addStretch(1)
 
-        # ✅ 정사각형 카드 고정(1080 가로 기준 4열 추천)
+        # ✅ 정사각형 카드 고정
         CARD_SIZE = 240
         self.setFixedSize(CARD_SIZE, CARD_SIZE)
         self.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
@@ -535,7 +535,7 @@ class SelectPage(QWidget):
         self.go_waiting = go_waiting
         self.ctx = ctx
 
-        # ✅ 선택 id -> DI 주소(요청대로)
+        # ✅ 선택 id -> DI 주소
         self.ITEM_TO_DI_ADDR = {
             "tri": 0,
             "rect": 1,
@@ -567,7 +567,7 @@ class SelectPage(QWidget):
         root.setSpacing(0)
 
         # =========================
-        # 상단 헤더 바 (홈 버튼 왼쪽 + 타이틀 Art Robo)
+        # 상단 헤더 바 
         # =========================
         header = QFrame()
         header.setFixedHeight(100)
