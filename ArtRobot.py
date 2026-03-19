@@ -20,7 +20,7 @@ from pymodbus.datastore import ModbusSequentialDataBlock
 # =========================================================
 # Modbus TCP Slave 설정 (PC가 서버)
 # =========================================================
-PC_IP = "192.168.100.30"
+PC_IP = "192.168.xxx.xx"
 PC_PORT = 502
 
 # 주소 매핑
