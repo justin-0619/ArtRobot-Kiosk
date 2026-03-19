@@ -10,7 +10,7 @@ PyQt5를 활용한 UI와 Modbus TCP 통신을 기반으로 제작되었습니다
 | 메인 화면 | 도형 선택 | 그리기 대기 |
 | :---: | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/ce2e1736-1691-4bf0-ab0a-2574aea22d20" width="250"> | <img src="https://github.com/user-attachments/assets/a6ded0a3-ed67-4235-af18-e8ae48dd9c18" width="250"> | <img src="https://github.com/user-attachments/assets/f28a4185-9a8a-4bcc-94f4-34c97318678a" width="250"> |
-| 터치 시 시작 | 5종의 도형 선택 가능 | 실시간 진행률 표시 |
+| 터치 시 시작 | 6종의 도형 선택 가능 | 실시간 진행률 표시 |
 
 | 완료 및 복귀 | 데이터 분석 보고서 |
 | :---: | :---: |
