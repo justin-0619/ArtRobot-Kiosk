@@ -1,23 +1,42 @@
-원하는 모양을 고르면 로봇이 그려주는 키오스크 프로그램을 개발.
-요약보고서를 통한 사용자(고객)에 대한 분석이 가능하게 기능을 추가.
+# 🤖 Art Robo: 도형 그리기 협동로봇 키오스크
 
-ui는 pyqt5를 통해 제작, 통신은 모드버스 TCP를 사용, 로봇은 두산협동로봇을 사용
+원하는 모양을 선택하면 **두산 협동로봇**이 실시간으로 그림을 그려주는 키오스크 프로그램입니다. 
+PyQt5를 활용한 UI와 Modbus TCP 통신을 기반으로 제작되었습니다.
 
+---
 
-프로그램을 실행하면 메인화면으로 시작
-<img width="1079" height="1919" alt="메인" src="https://github.com/user-attachments/assets/ce2e1736-1691-4bf0-ab0a-2574aea22d20" />
+## 📱 주요 화면 구성
 
-메인화면을 터치하면 사용자가 원하는 모양을 선택 가능한 페이지로 전환되며 원하는 모양을 선택 후 그리기 시작 버튼을 터치
-<img width="1079" height="1919" alt="그림 고르는 페이지" src="https://github.com/user-attachments/assets/a6ded0a3-ed67-4235-af18-e8ae48dd9c18" />
+| 메인 화면 | 도형 선택 | 그리기 대기 |
+| :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/ce2e1736-1691-4bf0-ab0a-2574aea22d20" width="250"> | <img src="https://github.com/user-attachments/assets/a6ded0a3-ed67-4235-af18-e8ae48dd9c18" width="250"> | <img src="https://github.com/user-attachments/assets/f28a4185-9a8a-4bcc-94f4-34c97318678a" width="250"> |
+| 터치 시 시작 | 5종의 도형 선택 가능 | 실시간 진행률 표시 |
 
-로봇이 신호를 받고 원하는 모양을 그리기 시작, 실시간으로 화면에 그림이 그려지는 것을 간단하게 확인 가능
-<img width="1079" height="1919" alt="대기 페이지_최신" src="https://github.com/user-attachments/assets/f28a4185-9a8a-4bcc-94f4-34c97318678a" />
+| 완료 및 복귀 | 데이터 분석 보고서 |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/5c395d1a-0c3b-48f0-989c-78558580baee" width="250"> | <img src="https://github.com/user-attachments/assets/89f7d07a-4e45-441c-a2dd-424aa5087d30" width="350"> |
+| 메인으로 복귀 기능 | 날짜별 이용 현황 요약 |
 
-그림이 완성되면 아래와 같은 화면이 뜨고 처음으로 버튼을 터치하면 다시 메인화면으로 복귀
-<img width="1079" height="1919" alt="마무리" src="https://github.com/user-attachments/assets/5c395d1a-0c3b-48f0-989c-78558580baee" />
+---
 
-날짜별 요약보고서를 생성하는 기능 (총 가동 횟수, 해당 날짜에 가장 많이 그린 모양, 가장 많이 이용한 시간대, 모양별 그린 횟수)
--> 이를 통해 사용자(고객)에 대한 데이터 분석이 가능. 사용자들이 가장 선호하는 모양, 고객이 가장 몰리는 시간등
-<img width="296" height="251" alt="미술로봇 보고서" src="https://github.com/user-attachments/assets/89f7d07a-4e45-441c-a2dd-424aa5087d30" />
+## 🛠 주요 기능 및 기술 스택
 
-간단하게 로봇과의 통신 및 로봇 티칭, 프로그램 개발에 대해 공부를 하였음
+### 1. 사용자 중심 UI/UX
+- **Framework:** `PyQt5`
+- 사용자가 직관적으로 도형을 선택하고 로봇의 상태를 확인할 수 있는 인터페이스 제공
+
+### 2. 로봇 제어 및 통신
+- **Protocol:** `Modbus TCP`
+- **Robot:** `Doosan Robotics (협동로봇)`
+- Modbus 신호를 통해 로봇의 좌표 데이터 및 동작 시퀀스 제어
+
+### 3. 데이터 분석 (Business Intelligence)
+- 일일 가동 횟수 및 인기 도형 통계 생성
+- 시간대별 방문객 유동성 분석 기능을 통해 운영 효율성 제고
+
+---
+
+## ✍️ 학습 내용
+- 로봇 티칭 및 좌표 시스템 이해
+- Modbus TCP를 이용한 외부 기기(PC-Robot) 통신 구현
+- 데이터 로그 기반의 요약 보고서 자동화 로직 개발
