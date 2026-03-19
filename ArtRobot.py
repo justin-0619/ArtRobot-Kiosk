@@ -128,7 +128,7 @@ def generate_report_from_today_log():
 
     drawing_counts = {}
 
-    # ✅ 로그/보고서 모두 UTF-8 통일 권장 (save_drawing_log도 UTF-8로 맞추세요)
+    # ✅ 로그/보고서 모두 UTF-8 통일 권장 (save_drawing_log도 UTF-8로 맞춤)
     with open(log_file, "r", encoding="utf-8") as f:
         for line in f:
             if "그림: " in line:
